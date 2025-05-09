@@ -1,0 +1,31 @@
+//- Определяем массив объектов
+-
+  const data = [
+    { text: 'consectetur', href: '#' },
+    { text: 'Adipiscing', href: '#' },
+    { text: 'tempor', href: '#' }
+  ];
+-
+  const socials = [
+    'insta', 'tik', 'link', 'facebook','telegram', 'youtube'
+  ];
+footer.footer
+  .footer__menu
+    .container.footer__menu-container
+      +menu(data, 'ml-0')
+  .footer__info
+    .container
+      .footer__info-container
+        a.neuron__logo(href="/")
+          span Neuron
+        .footer__info-socials
+          each social in socials
+            a(href="#")
+              +iconSvg(social)
+        +button('base', 'order', { href: 'https://github.com/', target: '_blank' }, 'a')
+      .footer__info-container
+        .footer__copy © 2024, Copyright.
+        a.policy.footer__policy(href="#") Privacy policy
+        a.policy.footer__policy(href="#") Terms of Use
+        
+    

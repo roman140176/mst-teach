@@ -1,0 +1,11 @@
+section.section.form-section
+  .container
+    .form-section__box
+      .form-section__main
+        h2.form-section__title Request #[br]Early Access
+        form(action="/" id="formId") 
+          +input('text', 'username', '', { placeholder: 'Name' }, '', 'user-id')
+          +input('email', 'email', '', { placeholder: 'E-mail',required: true }, '')
+          +checkbox('checkbox','accept','accept','I accept Privacy policy','checkbox')
+          +button('form', 'Submit Form', { type: 'submit' }, 'button')
+

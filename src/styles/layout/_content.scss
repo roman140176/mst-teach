@@ -1,0 +1,664 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use "sass:color";
+html,
+body {
+  font-family: $arial;
+  height: 100%;
+  font-size: 20px;
+  @include respond-max($xl) {
+      font-size: 30px;
+    }
+  @include respond-max($sm) {
+      font-size: 40px;
+    }
+  @include respond-max($xs){
+      font-size: 75px;
+    }
+}
+body{
+  background-color: $bodyBgColor;
+  color: $primaryColor;
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $bodyBgColor; // или белый #fff
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+
+  &.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+.wrapper {
+  max-width: 1920px;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  .content{
+    flex: 1 0 auto;
+    
+  }
+  .footer{
+
+  }
+}
+.ml-0{
+  margin-left: 0!important;
+}
+.ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.container{
+  max-width: 1597px;
+  width: 100%;
+  margin: 0 auto;
+  @include respond-max($xl) {
+      max-width: none;
+      padding: 0 30px;
+    }
+  @include respond-max($sm) {
+      max-width: none;
+      padding: 0 40px;
+    }
+}
+.header{  
+  padding:30px 0;
+  background-color: $contentBgColor;
+}
+.neuron{
+  &__header{
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.3s ease;
+    @include respond-max($sm) {
+        z-index: 20;
+        &::after {
+            width: 100%;
+          }
+      }
+    &::after{
+      content:"";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background-color: rgba($primaryColor,0.3);
+    }
+    &--scrolled{
+      padding: 16px 0;
+      background-color: color.adjust($contentBgColor, $lightness: -2%);
+      @include respond-max($sm){
+        padding: 30px 0;
+      }
+      &::after{
+        width: 100%;
+      }
+    }
+    &-container{
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__menu{
+    display: flex;
+    margin-left: 205px;
+    gap:29px;
+    font-style: italic;
+    @include respond-max($xl){
+      gap: 40px;
+    }
+    @include respond-max($sm){
+      margin-left: auto;
+      gap: 50px;
+    }
+    @include respond-max($xs){
+      gap: 70px;
+    }
+    &-item{
+      text-transform: uppercase;
+    }
+    &-link{
+      display: block;      
+      font-size: 16px;
+      line-height: 150%;
+      color: $primaryColor;
+      @include respond-max($xl) {
+          font-size: 26px;
+        }
+      @include respond-max($sm) {
+          font-size: 36px;
+        }
+      @include respond-max($xs) {
+          font-size: 56px;
+        }
+    }
+  }
+  &__logo{
+    font-size: 36px;
+    font-family: $prata;    
+    text-transform: uppercase;
+    color: $primaryColor;
+    @include respond-max($xl) {
+        font-size: 46px;
+      }
+    @include respond-max($sm) {
+        font-size: 66px;
+      }
+    @include respond-max($xs) {
+        font-size: 86px;
+      }
+    span{
+      line-height: 150%;
+    }
+  }
+  &__title{
+    font-size: 80px;
+    line-height: 1.2;
+    font-family: $prata;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+    @include respond-max($sm){
+      font-size: 100px;
+    }
+     @include respond-max($xs){
+      font-size: 180px;
+      line-height: 1;
+      margin-bottom: 60px;
+     }
+  }
+  &__subtitle{
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    @include respond-max($sm) {
+        font-size: 70px;
+      }
+    @include respond-max($xs) {
+        font-size: 140px;
+      }
+  }
+  &__hero{
+    position: relative;
+    background-color: $contentBgColor;
+    @include respond-max($xs){
+      margin-bottom: 0;
+    }
+    &-after{
+      top: 0;
+      right: 0;
+      position: absolute;
+      width: 39.77vw;
+      height: 100%;
+      overflow: hidden;
+      @include respond-max($xl) {
+          width: 850px;
+        }
+      @include respond-max($sm) {
+          width: 50%;
+        }
+      @include respond-max($xs) {
+          display: none;
+        }
+      &-bg{
+        content: "";
+        position: absolute;
+        inset:0;
+        background: url('../../assets/images/2.avif') no-repeat center;
+        background-size: cover;
+        z-index: 10;
+        transform: translateY(0);
+      }
+    }
+    &-list{
+      padding-top: 64px;
+      display: flex;
+      flex-flow: column;
+      &+.btn-base{
+        margin-top: 40px;
+        @include respond-max($xl) {
+            margin-top: 50px;
+          }
+        @include respond-max($sm) {
+            margin-top: 60px;
+          }
+      }
+    }
+    &-listItem{
+      position: relative;
+      padding-right: 20px;
+      align-self: baseline;
+      display: inline-flex;
+      align-items: center;
+      font-size: 24px;
+      background: rgba(40, 40, 41, 0.7);
+      border-radius: 4px;
+      width: 100%;
+      @include respond-max($xl) {
+        font-size: 34px;
+        padding-right: 30px;
+      }
+      @include respond-max($sm) {
+        font-size: 54px;
+        padding-right: 30px;
+      }
+      @include respond-max($xs) {
+        font-size: 84px;
+        padding-right: 30px;
+      }
+      &+&{
+        margin-top: 35px;
+      }
+      &::before{
+        content:"";
+        width: 39px;
+        height: 37px;
+        top: 0;
+        left: 0;
+        background: url('../../assets/images/tick.svg') no-repeat center;
+        margin-right: 17px;
+        flex-shrink: 0;
+        background-size: 100% 100%;
+        @include respond-max($xl){
+          width: 49px;
+          height: 47px;
+        }
+        @include respond-max($xs){
+          width: 89px;
+          height: 87px;
+          margin-right: 37px;
+        }
+      }
+      mark{
+        flex-shrink: 0;
+        font-size: 40px;
+        font-family: $prata;
+        margin-left: 7px;
+        margin-right: 15px;
+        white-space: normal;
+        @include respond-max($xl) {
+            font-size: 50px;
+            margin-left: 17px;
+            margin-right: 25px;
+          }
+        @include respond-max($sm) {
+            font-size: 60px;
+            margin-left: 27px;
+            margin-right: 35px;
+          }
+        @include respond-max($xs) {
+            font-size: 120px;
+            margin-left: 47px;
+            margin-right: 37px;
+          }
+      }
+    }
+    &-aside{
+      max-width: 517px;
+      padding-top: 287px;
+      padding-bottom: 50px;
+      @include respond-max($xl) {
+          padding-bottom: 100px;
+          max-width: 617px;
+        }
+      @include respond-max($sm) {
+          padding-right: 50px;
+          max-width: none;
+          width: 50%;
+        }
+      @include respond-max($xs) {
+          width: 100%;
+          padding-right: 0;
+        }
+    }
+  }
+}
+
+.features{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  @include respond-max($xs){
+    flex-wrap: wrap;
+  }
+    &__img{
+      width: 32%;
+      min-height: 37.708vw;
+      height: auto;
+      background: url('../../assets/images/2.avif') no-repeat center;
+      background-size: cover;
+      @include respond-max($xs){
+        min-height: 900px;
+      }
+      &.-left{
+        background: url('../../assets/images/3.avif') no-repeat center;
+        background-size: cover;
+        @include respond-max($sm) {
+            width: 35%;
+          }
+        @include respond-max($xs) {
+            width: 100%;
+          }
+      }
+      &.-right{
+        @include respond-max($sm) {
+            display: none;
+          }
+      }
+    }
+    &__info{
+      width: 36%;
+      padding: 0 53px;
+      display: flex;
+      flex-flow: column;
+      .btn-base{
+        margin-top: auto;
+      }
+      @include respond-max($sm){
+          width: 65%;
+        }
+      @include respond-max($xs){
+          padding-top: 100px;
+          width: 100%;
+        }
+    }
+    &__item{
+      position: relative;
+      padding-bottom: 30px;
+      font-size: 24px;
+      line-height: 140%;
+      color: $primaryColor;
+      padding-left: 78px;
+      border-bottom: 1px solid $listBorder;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      &:last-child{
+        border-bottom: 0;
+      }
+      &:not(:first-child){
+        margin-top: 30px;
+        @include respond-max($xs){
+          margin-top: 80px;
+          padding-bottom: 80px;
+        }
+      }
+      &::before{
+        content:"";
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 58px;
+        height: 47px;
+        background: url('../../assets/images/list.svg') no-repeat 0 0;        
+        background-size: 100% 100%;
+        @include respond-max($xl) {
+            width: 68px;
+            height: 57px;
+          }
+        @include respond-max($sm){
+          width: 78px;
+          height: 67px;
+        }
+        @include respond-max($xs){
+          width: 98px;
+          height: 87px;
+        }
+      }
+      @include respond-max($xl) {
+        padding-left: 88px;
+        font-size: 28px;
+      }
+      @include respond-max($sm){
+        padding-left: 100px;
+        font-size: 48px;
+      }
+      @include respond-max($xs){
+        padding-left: 130px;
+        font-size: 78px;
+      }
+    }
+    .btn.btn-base.animate{
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      @include respond-max($xs){
+        margin-top: 80px;
+      }
+    }
+}
+
+.form-section{
+  &__box{
+    position: relative;
+    padding: 72px 20px 72px 134px;
+    border-radius: 30px;
+    background: $primaryColor;
+    @include respond-max($sm){
+      padding: 72px 20px 72px 50px;
+    }
+    @include respond-max($xs){
+      padding: 60px;
+     }
+    &::after{
+      content:"";
+      position: absolute;
+      border-radius: 0 30px 30px 0;
+      top: 0;
+      right: 0;
+      width: 609px;
+      height: 100%;
+      background: url('../../assets/images/form.avif') no-repeat center;
+      background-size: cover;
+      z-index: 1;
+      @include respond-max($sm){
+        display: none;
+      }
+    }
+    &::before{
+      display: block;
+      content:"";
+      position: absolute;
+      bottom: 0;
+      right: 188px;
+      width: 469px;
+      height: 689px;
+      background: url('../../assets/images/girl.avif') no-repeat center;
+      background-size: 100% 100%;
+      z-index: 2;
+      @include respond-max($sm) {
+          right: 1%;
+        }
+      @include respond-max($xs) {
+          display: none;
+        }
+    }
+  }
+  &__title{
+    font-size: 54px;
+    line-height: 110%;
+    font-family: $prata;
+    color: $formColor;
+    margin-top: 0;
+    margin-bottom: 45px;
+    @include respond-max($xl) {
+        font-size: 64px;
+      }
+    @include respond-max($sm) {
+        font-size: 84px;
+      }
+    @include respond-max($xs) {
+        font-size: 124px;
+      }
+  }
+  &__main{    
+    width: 100%;
+    max-width: 781px;
+    @include respond-max($xl){
+      max-width: 950px;
+    }
+    @include respond-max($sm){
+      max-width: 70%;
+    }
+    @include respond-max($xs){
+      max-width: none;
+    }
+    form{
+      display: flex;
+      flex-flow: column;
+    }
+  }
+}
+
+.footer{
+  background-color: $contentBgColor;
+  padding-bottom: 60px;
+  @include respond-max($sm){
+    padding-bottom: 100px;
+  }
+  &__copy,&__policy{
+    font-size: 20px;
+    @include respond-max($xl) {
+        font-size: 30px;
+      }
+    @include respond-max($sm) {
+        font-size: 40px;
+      }
+    @include respond-max($xs) {
+        font-size: 65px
+      }
+    
+  }
+    &__policy{
+      color: $inputBorderColor;
+    }
+  &__menu{
+    border: 1px solid $inputHoverBorderColor;
+    border-left: 0;
+    border-right: 0;
+    &-container{
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;     
+      @include respond-max($xs){
+        padding: 80px 0;
+      }
+      .neuron__menu-link{
+        line-height: 1;
+      }
+    }
+  }
+  &__info{
+    padding-top: 43px;
+    &-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &+&{
+        margin-top: 38px;
+        @include respond-max($sm) {
+            margin-top: 78px;
+        }
+        @include respond-max($xs){
+            flex-flow: row;
+        }
+       
+      }
+      @include respond-max($sm){
+        .btn-base{
+          width: auto;
+          padding-left: 80px;
+          padding-right: 80px;
+        }
+      }
+      @include respond-max($xs){
+        flex-flow: column;
+        gap:50px;
+        .neuron__logo{
+          width: 100%;
+        }
+        .btn-base{
+         width: 100%;
+         padding-left: 50px;
+         padding-right: 50px;
+        }
+      }
+    }
+    &-socials{
+      display: flex;
+      gap: 40px;
+      @include respond-max($sm) {
+          gap: 0;
+          flex-grow: 1;
+          justify-content: space-between;
+          padding-left: 180px;
+          padding-right: 180px;
+        }
+      @include respond-max($xs) {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      a{
+        color:$inputBorderColor;
+        display: flex;
+        i{
+          font-size: 24px;
+          @include respond-max($xl) {
+              font-size: 44px;
+            }
+          @include respond-max($sm) {
+              font-size: 64px;
+            }
+          @include respond-max($xs) {
+              font-size: 140px;
+            }
+        }
+      }
+    }
+  }
+}
+
+.animate.visible {
+  opacity: 1!important;
+  transform: translateY(0) !important; // для feature-item
+}
+// .btn.btn-base.animate{
+//   transform: translateX(0);
+// }

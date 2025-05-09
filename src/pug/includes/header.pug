@@ -1,0 +1,14 @@
+//- Определяем массив объектов
+-
+  const menuItems = [
+    { text: 'Solutions', href: '#' },
+    { text: 'Pricing', href: '#' },
+    { text: 'Contact', href: '#' }
+  ];
+header.header.neuron__header
+  .container.neuron__header-container
+    .burger
+      span
+    a.neuron__logo(href="/")
+      span Neuron
+    +menu(menuItems, '')  

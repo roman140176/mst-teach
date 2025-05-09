@@ -1,0 +1,233 @@
+@use './variables' as *;
+@use './mixins' as *;
+.btn{  
+  position: relative;
+  cursor: pointer;
+  border: 1px solid transparent;
+  overflow: hidden;
+  border-radius: 4px;  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  outline: none;
+  font-size: 24px;
+  text-transform: uppercase;  
+  max-width: 100%;
+  transition: all .3s ease;  
+  &:focus,&:active{
+    outline: none;
+  }
+  @include respond-max($xl) {
+    font-size: 30px;
+  }
+  @include respond-max($sm) {
+    font-size: 50px;
+  }
+   @include respond-max($xs){
+    font-size: 100px;
+   }
+  
+  span{
+    padding-top: 0.15em;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include respond-max($lg) {
+        padding-top: 0.2em;
+      }
+  }
+  &-base{
+    font-weight: bold;
+    padding: 28px 50px;
+    background-color: $primaryColor;
+    color: $contentBgColor;
+    @include respond-max($sm){
+      padding: 38px 30px;
+      width: 100%;
+    }
+     @include respond-max($xs){
+      padding: 58px 30px;
+     }
+    &:hover{
+      background-color: transparent;
+      color: $primaryColor;
+      border: 1px solid $primaryColor;
+      span{
+        font-style: italic;
+        font-weight: normal;
+      }
+    }
+  }
+  &-form{
+    padding: 30px 50px;
+    background-color: $bodyBgColor;
+    color: $primaryColor;
+    @include respond-max($sm) {
+        padding: 40px 30px;
+        width: 100%;
+      }
+    @include respond-max($xs){
+      padding: 58px 30px;
+     }
+    &:hover {
+        background-color: transparent;
+        color: $contentBgColor;
+        box-shadow: inset 2px 2px 20px 5px rgba($color: #000000, $alpha: 0.2);
+        span {
+          font-style: italic;
+          font-weight: normal;
+        }
+      }
+  }
+}
+
+
+
+.form-group{
+  width: 100%;
+  &+&{
+    margin-top: 13px;
+    @include respond-max($xl) {
+        margin-top: 23px;
+      }
+    @include respond-max($sm) {
+        margin-top: 43px;
+      }
+  }
+}
+
+input:not([type="checkbox"]):not([type="radio"]){
+  padding-left: 40px;
+  padding-right: 20px;
+  border: 1px solid $inputBorderColor;
+  border-radius: 4px;
+  background-color: $primaryColor;
+  height: 65px;
+  width: 100%;
+  &:focus{
+    outline: none;
+    border-color: $inputHoverBorderColor;
+  }
+  @include respond-max($xl) {
+    height: 75px;
+  }
+  @include respond-max($sm){
+    height: 100px;
+  }
+  @include respond-max($xs){
+    height: 200px;
+  }
+}
+.form-group+.checkbox-label{
+  margin-top: 26px;
+  margin-bottom: 26px;
+  @include respond-max($xl){
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+  @include respond-max($xs){
+    margin-top: 76px;
+    margin-bottom: 76px;
+  }
+}
+.checkbox-label{
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  gap:16px;
+  color: $listBorder;
+  font-size: 19px;  
+  input:checked + .input-checkbox{
+    background-color: transparent;
+    border: 1px solid transparent;
+    background-image: url('../../assets/images/check.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: .6;
+  }
+  @include respond-max($xl) {
+    font-size: 29px;
+  }
+  @include respond-max($sm) {
+    font-size: 45px;
+    gap: 36px;
+  }
+  @include respond-max($xs) {
+    font-size: 75px;
+    gap: 56px;
+  }
+}
+.input-checkbox{
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 1px solid $checkboxColor;
+  border-radius: 4px;
+ 
+  @include respond-max($xl){
+      width: 34px;
+      height: 34px;
+    }
+  @include respond-max($sm) {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+    }
+  @include respond-max($xs){
+    width: 84px;
+    height: 84px;
+    border-radius: 16px;
+  }
+}
+.hidden{
+  display: none;
+}
+.section{
+  margin-bottom: 100px;
+}
+
+.burger{
+  display: none;  
+  @include respond-max($sm) {
+    // display: block;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+    span{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 4px;
+      background-color: $primaryColor;
+      border-radius: 4px;    
+      &::before{
+        content:"";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $primaryColor;
+        border-radius: 4px;      
+      } 
+      &::after{
+        content:"";
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $primaryColor;
+        border-radius: 4px;      
+      } 
+    }
+  }
+}

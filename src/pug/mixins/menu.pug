@@ -1,0 +1,5 @@
+mixin menu(items, additionalClass = '')
+  ul(class=`neuron__menu ${additionalClass}`.trim())
+    each item in items
+      li.neuron__menu-item
+        a.neuron__menu-link(href=item.href)= item.text
