@@ -100,6 +100,7 @@ body{
   background: $slideColor;
   box-shadow: 0px 8px 40px rgba(172, 178, 184, 0.32);
   border-radius: 60px;
+  overflow: hidden;
   @include respond-max-to("xl"){
     width: 808px;
     height: 616px;    
@@ -136,8 +137,7 @@ body{
     display: flex;
     text-align: center;
     font-size: 24px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    filter: drop-shadow(14.9732px 12.8342px 36.3635px rgba(0, 0, 0, 0.25));
+    box-shadow: 14.9732px 12.8342px 36.3635px rgba(0, 0, 0, 0.25);
     border-radius: 12.8342px;
     overflow: hidden;
     @include respond-max-to("xl"){
