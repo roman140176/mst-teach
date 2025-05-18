@@ -254,9 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(popup);
 
     setTimeout(() => popup.classList.add('visible'), 10);
-    // setTimeout(() => {
-    //   popup.classList.remove('visible');
-    //   setTimeout(() => popup.remove(), 300);
-    // }, 2500);
+    setTimeout(() => {
+      popup.classList.remove('visible');
+      setTimeout(() => popup.remove(), 300);
+    }, 2500);
   }
 });
