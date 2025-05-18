@@ -1,0 +1,11 @@
+section.slider
+  .slider__wrapper
+    button.slider__arrow.slider__arrow--left ←
+    .slider__track
+      each i in [0, 1, 2, 3]
+        .slider__slide(data-index=i)
+          img(src=`assets/images/${i + 1}.avif`, alt=`Слайд ${i + 1}`)
+    button.slider__arrow.slider__arrow--right →
+    .slider__dots
+      each i in [0, 1, 2, 3]
+        button.slider__dot(data-index=i)

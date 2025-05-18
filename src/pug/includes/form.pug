@@ -1,11 +1,37 @@
-section.section.form-section
+section.form-section
   .container
     .form-section__box
+      aside.form-section__info
+        h2.form-section__info-title Контакты
+        .form-section__info-desc.address
+          header.form-section__info-desc_head Адрес
+          .form-section__info-desc_body
+            .form-section__info-desc_icon
+              i.icon-map
+            .form-section__info-desc_text г. Краснодар #[br]ул. Бабушкина 110, офис 4
+        .form-section__info-desc.contacts
+          header.form-section__info-desc_head Контакты
+          .form-section__info-desc_body
+            .form-section__info-desc_icon
+              i.icon-mail
+            .form-section__info-desc_text 
+              a(href="mailto:ra-matina@mail.ru") ra-matina@mail.ru
+          .form-section__info-desc_body
+            .form-section__info-desc_icon
+              i.icon-phone
+            .form-section__info-desc_text 
+              a(href="tel:88612463336") 8 (861) 246-33-36
+          .form-section__info-desc_body
+            .form-section__info-desc_icon
+              i.icon-phone
+            .form-section__info-desc_text 
+              a(href="tel:89014904646") 8 (901) 490-46-46
       .form-section__main
-        h2.form-section__title Request #[br]Early Access
+        .mail-bg
+        h2.form-section__main-title Заказать звонок
         form(action="/" id="formId") 
-          +input('text', 'username', '', { placeholder: 'Name' }, '', 'user-id')
-          +input('email', 'email', '', { placeholder: 'E-mail',required: true }, '')
-          +checkbox('checkbox','accept','accept','I accept Privacy policy','checkbox')
-          +button('form', 'Submit Form', { type: 'submit' }, 'button')
+          +input('text', 'username', '', { placeholder: 'Имя' }, '', 'user-id')
+          +input('tel', 'phone', '', { placeholder: 'Номер телефона' }, '')
+          +checkbox('checkbox','accept','accept','Согласие на обработку персональных данных','checkbox')
+          +button('submit', 'Отправить', { type: 'submit' }, 'button')
 

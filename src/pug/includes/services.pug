@@ -1,0 +1,115 @@
+//- Определяем массив объектов
+-
+  const data = [
+    { text: 'Услуги дизайна', href: '#design',icon:'picture' },
+    { text: 'Изготовление рекламной продукции', href: '#prints',icon:'print' },
+    { text: 'Изготовление вывесок и флагов', href: '#flags',icon:'flag' },
+    { text: 'Прочие услуги', href: '#other',icon:'service' }
+  ];
+-
+h1.main__title Изготовление
+.tabs
+  header.tabs__header
+    each item, i in data
+      .tabs__item.js-tab-item(class={ active: i === 0 }, data-comtent=`${item.href}`)
+        .tabs__item-icon
+          +icon(item.icon,item.icon)
+        span.tabs__item-txt= item.text
+        span.tabs__item-botton
+
+  .tabs__content
+    .tabs__content-info.-active#design
+      .tabs__content-left
+        .tabs__content-desc
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+        .tabs__content-desc
+          +button('gradient', 'Предоплата', { href: '#', onClick: 'return false' }, 'button')
+          ul.tabs__content-list
+            li.tabs__content-list_item Согласование стоимости работ
+            li.tabs__content-list_item 50% Предоплата
+            li.tabs__content-list_item Приступаем к работе
+        .tabs__content-desc
+          +button('gradient', 'Разработка и правки', { href: '#', onClick: 'return false' }, 'button')
+          ul.tabs__content-list
+            li.tabs__content-list_item Часовая ставка #[strong - 1200 р/час]
+            li.tabs__content-list_item Один макет #[strong - 3000 р.]
+            li.tabs__content-list_item #[strong Одна] итерация правок - 500 р.
+        .tabs__content-desc
+          +button('submit', 'Заказать', { href: '#', onClick: 'return false' }, 'button')
+
+      .tabs__content-right
+        include ./slider.pug
+        
+    .tabs__content-info#prints
+      .tabs__content-left
+        .tabs__content-desc
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+        .tabs__content-desc
+          +button('gradient', 'Предоплата', { href: '#', onClick: 'return false' }, 'button')
+          ul.tabs__content-list
+            li.tabs__content-list_item Согласование стоимости работ
+            li.tabs__content-list_item 50% Предоплата
+            li.tabs__content-list_item Приступаем к работе
+        .tabs__content-desc
+          +button('gradient', 'Разработка и правки', { href: '#', onClick: 'return false' }, 'button')
+          ul.tabs__content-list
+            li.tabs__content-list_item Часовая ставка #[strong - 1200 р/час]
+            li.tabs__content-list_item Один макет #[strong - 3000 р.]
+            li.tabs__content-list_item #[strong Одна] итерация правок - 500 р.
+        .tabs__content-desc
+          +button('submit', 'Заказать', { href: '#', onClick: 'return false' }, 'button')
+
+      .tabs__content-right
+        .tabs__content-picturebox
+          .tabs__item-icon
+            +icon('print','print')
+          h2 Изготовление рекламной продукции
+
+    .tabs__content-info#flags
+      .tabs__content-left
+        .tabs__content-desc
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+
+        .tabs__content-desc
+          +button('gradient', 'Разработка и правки', { href: '#', onClick: 'return false' }, 'button')
+          ul.tabs__content-list
+            li.tabs__content-list_item Часовая ставка #[strong - 1200 р/час]
+            li.tabs__content-list_item Один макет #[strong - 3000 р.]
+            li.tabs__content-list_item #[strong Одна] итерация правок - 500 р.
+        .tabs__content-desc
+          +button('submit', 'Заказать', { href: '#', onClick: 'return false' }, 'button')
+
+      .tabs__content-right
+        .tabs__content-picturebox
+          .tabs__item-icon
+            +icon('flag','flag')
+          h2 Изготовление вывесок и флагов
+
+    .tabs__content-info#other
+      .tabs__content-left
+        .tabs__content-desc
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+        .tabs__content-desc
+          p В штате нашего рекламного агентства трудятся только #[br]профессиональные дизайнеры. Макет разрабатывается 
+            | #[br]с учетом индивидуальных особенностей и пожеланий клиента.
+            | #[br]Поможем разработать #[strong дизайн баннеров, вывесок, флагов а #[br]также фирменный стиля и именную продукцию компании.]
+
+        .tabs__content-desc
+          +button('submit', 'Заказать', { href: '#', onClick: 'return false' }, 'button')
+
+      .tabs__content-right
+        .tabs__content-picturebox
+          .tabs__item-icon
+            +icon('service','service')
+          h2 Прочие услуги

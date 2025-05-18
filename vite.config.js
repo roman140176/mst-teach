@@ -4,6 +4,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 import path from 'path';
 import fs from 'fs';
 import pug from 'pug';
+import { log } from 'console';
 
 // Функция для компиляции Pug в HTML
 function compilePugPages() {
@@ -45,7 +46,8 @@ function pugHotReloadPlugin() {
 function directoryExists(path) {
   try {
     return fs.statSync(path).isDirectory()
-  } catch (err) {
+  } catch (error) {
+    console.log(error)
     return false
   }
 }
@@ -67,7 +69,6 @@ function getCopyTargets() {
       dest: 'assets/fonts'
     })
   }
-
   return targets
 }
 
@@ -107,6 +108,18 @@ export default defineConfig({
       symbolId: 'icon-[name]',
       inject: 'body-last',
       customDomId: '__svg__icons__dom__',
+      svgoOptions: {
+        plugins: [
+          {
+            name: 'removeDimensions',
+            active: false, // 👈 сохраняем width/height
+          },
+          {
+            name: 'removeViewBox',
+            active: false, // 👈 если хочешь сохранить viewBox (по желанию)
+          }
+        ]
+      }
     }),
     viteStaticCopy({
       targets: getCopyTargets()

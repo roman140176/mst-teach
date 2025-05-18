@@ -1,0 +1,31 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.picture{
+  width: 44px;
+  height: 36px;  
+}
+.print{
+  width: 46px;
+  height: 45px;
+  
+}
+.flag{
+  width: 33px;
+  height: 41px;
+  @include respond-max-to("md") {
+      width: 45%;
+      height: auto;
+    }
+}
+.service{
+  width: 42px;
+  height: 45px;
+  
+}
+.picture,.print,.service{
+  @include respond-max-to("md") {
+      width: 60%;
+      height: auto;
+    }
+}

@@ -10,100 +10,240 @@
     <div id="preloader">
       <div class="spinner"></div>
     </div>
-    <div class="wrapper neuron">
-      <header class="header neuron__header">
-        <div class="container neuron__header-container">
-          <div class="burger"><span></span></div><a class="neuron__logo" href="/"><span>Neuron</span></a>
-          <ul class="neuron__menu">
-            <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">Solutions</a></li>
-            <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">Pricing</a></li>
-            <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">Contact</a></li>
-          </ul>
-        </div>
-      </header>
+    <div class="wrapper">
       <main class="content"> 
-        <section class="section neuron__hero">
-          <div class="container">
-            <aside class="neuron__hero-aside">
-              <h1 class="neuron__title">Unlock Growth AI Marketing</h1>
-              <h3 class="neuron__subtitle">Empower your startup</h3>
-              <ul class="neuron__hero-list"> 
-                <li class="neuron__hero-listItem"> <span>do</span>
-                  <mark>$10 000</mark><span class="ellipsis">consectetur elit</span>
-                </li>
-                <li class="neuron__hero-listItem"> 
-                  <mark class="ml-0">30%</mark><span>sed do eiusmod tempor </span>
-                </li>
-                <li class="neuron__hero-listItem"> <span>do</span>
-                  <mark>17%</mark><span class="ellipsis">adipiscing elit sed do</span>
-                </li>
-              </ul>
-              <a class="btn btn-base" href="https://github.com/" target="_blank"><span>Get Started</span></a>
-            </aside>
+        <div class="container">   
+          <h1 class="main__title">Изготовление</h1>
+          <div class="tabs">
+            <header class="tabs__header">
+              <div class="tabs__item js-tab-item active" data-comtent="#design">
+                <div class="tabs__item-icon">
+                  <svg class="picture">
+                    <use xlink:href="#icon-picture"></use>
+                  </svg>
+                </div><span class="tabs__item-txt">Услуги дизайна</span><span class="tabs__item-botton"></span>
+              </div>
+              <div class="tabs__item js-tab-item" data-comtent="#prints">
+                <div class="tabs__item-icon">
+                  <svg class="print">
+                    <use xlink:href="#icon-print"></use>
+                  </svg>
+                </div><span class="tabs__item-txt">Изготовление рекламной продукции</span><span class="tabs__item-botton"></span>
+              </div>
+              <div class="tabs__item js-tab-item" data-comtent="#flags">
+                <div class="tabs__item-icon">
+                  <svg class="flag">
+                    <use xlink:href="#icon-flag"></use>
+                  </svg>
+                </div><span class="tabs__item-txt">Изготовление вывесок и флагов</span><span class="tabs__item-botton"></span>
+              </div>
+              <div class="tabs__item js-tab-item" data-comtent="#other">
+                <div class="tabs__item-icon">
+                  <svg class="service">
+                    <use xlink:href="#icon-service"></use>
+                  </svg>
+                </div><span class="tabs__item-txt">Прочие услуги</span><span class="tabs__item-botton"></span>
+              </div>
+            </header>
+            <div class="tabs__content">
+              <div class="tabs__content-info -active" id="design">
+                <div class="tabs__content-left">
+                  <div class="tabs__content-desc">
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-gradient" href="#" onClick="return false"><span>Предоплата</span></button>
+                    <ul class="tabs__content-list">
+                      <li class="tabs__content-list_item">Согласование стоимости работ</li>
+                      <li class="tabs__content-list_item">50% Предоплата</li>
+                      <li class="tabs__content-list_item">Приступаем к работе</li>
+                    </ul>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-gradient" href="#" onClick="return false"><span>Разработка и правки</span></button>
+                    <ul class="tabs__content-list">
+                      <li class="tabs__content-list_item">Часовая ставка <strong>- 1200 р/час</strong></li>
+                      <li class="tabs__content-list_item">Один макет <strong>- 3000 р.</strong></li>
+                      <li class="tabs__content-list_item"><strong>Одна</strong> итерация правок - 500 р.</li>
+                    </ul>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-submit" href="#" onClick="return false"><span>Заказать</span></button>
+                  </div>
+                </div>
+                <div class="tabs__content-right">
+                  <section class="slider">
+                    <div class="slider__wrapper">
+                      <button class="slider__arrow slider__arrow--left">←</button>
+                      <div class="slider__track">
+                        <div class="slider__slide" data-index="0"><img src="assets/images/1.avif" alt="Слайд 1"></div>
+                        <div class="slider__slide" data-index="1"><img src="assets/images/2.avif" alt="Слайд 2"></div>
+                        <div class="slider__slide" data-index="2"><img src="assets/images/3.avif" alt="Слайд 3"></div>
+                        <div class="slider__slide" data-index="3"><img src="assets/images/4.avif" alt="Слайд 4"></div>
+                      </div>
+                      <button class="slider__arrow slider__arrow--right">→</button>
+                      <div class="slider__dots">
+                        <button class="slider__dot" data-index="0"></button>
+                        <button class="slider__dot" data-index="1"></button>
+                        <button class="slider__dot" data-index="2"></button>
+                        <button class="slider__dot" data-index="3"></button>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="tabs__content-info" id="prints">
+                <div class="tabs__content-left">
+                  <div class="tabs__content-desc">
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-gradient" href="#" onClick="return false"><span>Предоплата</span></button>
+                    <ul class="tabs__content-list">
+                      <li class="tabs__content-list_item">Согласование стоимости работ</li>
+                      <li class="tabs__content-list_item">50% Предоплата</li>
+                      <li class="tabs__content-list_item">Приступаем к работе</li>
+                    </ul>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-gradient" href="#" onClick="return false"><span>Разработка и правки</span></button>
+                    <ul class="tabs__content-list">
+                      <li class="tabs__content-list_item">Часовая ставка <strong>- 1200 р/час</strong></li>
+                      <li class="tabs__content-list_item">Один макет <strong>- 3000 р.</strong></li>
+                      <li class="tabs__content-list_item"><strong>Одна</strong> итерация правок - 500 р.</li>
+                    </ul>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-submit" href="#" onClick="return false"><span>Заказать</span></button>
+                  </div>
+                </div>
+                <div class="tabs__content-right">
+                  <div class="tabs__content-picturebox">
+                    <div class="tabs__item-icon">
+                      <svg class="print">
+                        <use xlink:href="#icon-print"></use>
+                      </svg>
+                    </div>
+                    <h2>Изготовление рекламной продукции</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__content-info" id="flags">
+                <div class="tabs__content-left">
+                  <div class="tabs__content-desc">
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-gradient" href="#" onClick="return false"><span>Разработка и правки</span></button>
+                    <ul class="tabs__content-list">
+                      <li class="tabs__content-list_item">Часовая ставка <strong>- 1200 р/час</strong></li>
+                      <li class="tabs__content-list_item">Один макет <strong>- 3000 р.</strong></li>
+                      <li class="tabs__content-list_item"><strong>Одна</strong> итерация правок - 500 р.</li>
+                    </ul>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-submit" href="#" onClick="return false"><span>Заказать</span></button>
+                  </div>
+                </div>
+                <div class="tabs__content-right">
+                  <div class="tabs__content-picturebox">
+                    <div class="tabs__item-icon">
+                      <svg class="flag">
+                        <use xlink:href="#icon-flag"></use>
+                      </svg>
+                    </div>
+                    <h2>Изготовление вывесок и флагов</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__content-info" id="other">
+                <div class="tabs__content-left">
+                  <div class="tabs__content-desc">
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <p>В штате нашего рекламного агентства трудятся только <br>профессиональные дизайнеры. Макет разрабатывается <br>с учетом индивидуальных особенностей и пожеланий клиента.
+                      <br>Поможем разработать <strong>дизайн баннеров, вывесок, флагов а <br>также фирменный стиля и именную продукцию компании.</strong>
+                    </p>
+                  </div>
+                  <div class="tabs__content-desc">
+                    <button class="btn btn-submit" href="#" onClick="return false"><span>Заказать</span></button>
+                  </div>
+                </div>
+                <div class="tabs__content-right">
+                  <div class="tabs__content-picturebox">
+                    <div class="tabs__item-icon">
+                      <svg class="service">
+                        <use xlink:href="#icon-service"></use>
+                      </svg>
+                    </div>
+                    <h2>Прочие услуги</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="neuron__hero-after">
-            <div class="neuron__hero-after-bg"></div>
-          </div>
-        </section>
-        <section class="section features">
-          <div class="features__img -left"></div>
-          <div class="features__info">
-            <ul class="features__list"> 
-              <li class="features__item animate">Create multi-channel campaigns in minutes with AI assistance.</li>
-              <li class="features__item animate">Get deep insights into your performance, audience and trends.</li>
-              <li class="features__item animate">Find and qualify leads automatically using smart filters.</li>
-              <li class="features__item animate">Create multi-channel campaigns in minutes with AI assistance.</li>
-            </ul>
-            <a class="btn btn-base animate" href="#" onClick="return false"><span>Explore More</span></a>
-          </div>
-          <div class="features__img -right"></div>
-        </section>
-        <section class="section form-section">
+        </div>
+        <section class="form-section">
           <div class="container">
             <div class="form-section__box">
+              <aside class="form-section__info">
+                <h2 class="form-section__info-title">Контакты</h2>
+                <div class="form-section__info-desc address">
+                  <header class="form-section__info-desc_head">Адрес</header>
+                  <div class="form-section__info-desc_body">
+                    <div class="form-section__info-desc_icon"><i class="icon-map"></i></div>
+                    <div class="form-section__info-desc_text">г. Краснодар <br>ул. Бабушкина 110, офис 4</div>
+                  </div>
+                </div>
+                <div class="form-section__info-desc contacts">
+                  <header class="form-section__info-desc_head">Контакты</header>
+                  <div class="form-section__info-desc_body">
+                    <div class="form-section__info-desc_icon"><i class="icon-mail"></i></div>
+                    <div class="form-section__info-desc_text"> <a href="mailto:ra-matina@mail.ru">ra-matina@mail.ru</a></div>
+                  </div>
+                  <div class="form-section__info-desc_body">
+                    <div class="form-section__info-desc_icon"><i class="icon-phone"></i></div>
+                    <div class="form-section__info-desc_text"> <a href="tel:88612463336">8 (861) 246-33-36</a></div>
+                  </div>
+                  <div class="form-section__info-desc_body">
+                    <div class="form-section__info-desc_icon"><i class="icon-phone"></i></div>
+                    <div class="form-section__info-desc_text"> <a href="tel:89014904646">8 (901) 490-46-46</a></div>
+                  </div>
+                </div>
+              </aside>
               <div class="form-section__main">
-                <h2 class="form-section__title">Request <br>Early Access</h2>
+                <div class="mail-bg"></div>
+                <h2 class="form-section__main-title">Заказать звонок</h2>
                 <form action="/" id="formId"> 
                   <div class="form-group">
-                    <input type="text" name="username" id="user-id" value="" placeholder="Name"/>
+                    <input type="text" name="username" id="user-id" value="" placeholder="Имя"/>
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="input-email" value="" placeholder="E-mail" required="required"/>
+                    <input type="tel" name="phone" id="input-phone" value="" placeholder="Номер телефона"/>
                   </div>
                   <label class="checkbox-label" for="accept">
                     <input class="hidden" id="accept" type="checkbox" name="accept"/>
-                    <mark class="input-checkbox"></mark><span>I accept Privacy policy</span>
+                    <mark class="input-checkbox"></mark><span>Согласие на обработку персональных данных</span>
                   </label>
-                  <button class="btn btn-form" type="submit"><span>Submit Form</span></button>
+                  <button class="btn btn-submit" type="submit"><span>Отправить</span></button>
                 </form>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <footer class="footer">
-        <div class="footer__menu">
-          <div class="container footer__menu-container">
-            <ul class="neuron__menu ml-0">
-              <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">consectetur</a></li>
-              <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">Adipiscing</a></li>
-              <li class="neuron__menu-item"><a class="neuron__menu-link" href="#">tempor</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer__info">
-          <div class="container">
-            <div class="footer__info-container"><a class="neuron__logo" href="/"><span>Neuron</span></a>
-              <div class="footer__info-socials"><a href="#"><i class="icon-insta"></i></a><a href="#"><i class="icon-tik"></i></a><a href="#"><i class="icon-link"></i></a><a href="#"><i class="icon-facebook"></i></a><a href="#"><i class="icon-telegram"></i></a><a href="#"><i class="icon-youtube"></i></a>
-              </div>
-              <a class="btn btn-base" href="https://github.com/" target="_blank"><span>order</span></a>
-            </div>
-            <div class="footer__info-container">
-              <div class="footer__copy">© 2024, Copyright.</div><a class="policy footer__policy" href="#">Privacy policy</a><a class="policy footer__policy" href="#">Terms of Use</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
     <script type="module" src="/scripts/main.js"></script>
   </body>

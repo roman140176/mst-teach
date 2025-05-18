@@ -1,3 +1,26 @@
+@use "sass:map";
+
+@mixin mainTitle {
+  font-size: 56px;
+  line-height: .8;
+  font-weight: 800;
+  margin-bottom: 88px;
+  margin-top: 0;
+  @include respond-max-to('xl') {
+      font-size: 86px;
+      margin-bottom: 100px;
+    }
+  @include respond-max-to('md') {
+      font-size: 120px;
+    }
+  @include respond-max-to('sm') {
+      font-size: 160px;
+      margin-bottom: 160px;
+    }
+  
+}
+
+
 @mixin respond-max($breakpoint) {
   @media (max-width: $breakpoint) {
     @content;
@@ -9,3 +32,39 @@
     @content;
   }
 }
+
+@mixin respond-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in \$breakpoints map.";
+  }
+}
+@mixin respond-max-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in \$breakpoints map.";
+  }
+}
+
+// brakpoints
+$breakpoints: (
+  "sm": 480px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 2080px,
+) !default;

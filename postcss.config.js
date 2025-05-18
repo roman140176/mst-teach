@@ -1,13 +1,22 @@
+// postcss.config.js
+import pxToViewport from 'postcss-px-to-viewport-8-plugin';
+
 export default {
-  plugins: {
-    'postcss-px-to-viewport': {
+  plugins: [
+    pxToViewport({
       viewportWidth: 1920,
       unitPrecision: 5,
       viewportUnit: 'vw',
+      fontViewportUnit: 'vw',
       selectorBlackList: [],
-      minPixelValue: 1,
+      minPixelValue: 0,
       mediaQuery: true,
+      replace: true,
       exclude: [/node_modules/],
-    },
-  },
-}
+      landscape: false,
+      landscapeUnit: 'vw',
+      landscapeWidth: 568,
+      propList:['*']
+    })
+  ]
+};

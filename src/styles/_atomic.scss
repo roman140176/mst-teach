@@ -1,233 +1,299 @@
 @use './variables' as *;
 @use './mixins' as *;
-.btn{  
+
+.main__title{
+  @include mainTitle;
+}
+.hidden{
+  display: none!important;
+}
+.btn{
   position: relative;
-  cursor: pointer;
-  border: 1px solid transparent;
-  overflow: hidden;
-  border-radius: 4px;  
+  background-color: transparent;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: none;
   outline: none;
-  font-size: 24px;
-  text-transform: uppercase;  
-  max-width: 100%;
-  transition: all .3s ease;  
-  &:focus,&:active{
-    outline: none;
-  }
-  @include respond-max($xl) {
-    font-size: 30px;
-  }
-  @include respond-max($sm) {
-    font-size: 50px;
-  }
-   @include respond-max($xs){
-    font-size: 100px;
-   }
+  cursor: pointer;
+  transition: all 0.3s ease;
   
-  span{
-    padding-top: 0.15em;
+  &::after{
+    content:"";
+    position: absolute;
+    pointer-events: none;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: all 0.3s ease;
+  }
+  span,{
     position: relative;
     z-index: 1;
     pointer-events: none;
+    color: $bodyBgColor;
+  }
+  &-gradient{
+    padding: 8px 9px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    @include respond-max($lg) {
-        padding-top: 0.2em;
-      }
-  }
-  &-base{
-    font-weight: bold;
-    padding: 28px 50px;
-    background-color: $primaryColor;
-    color: $contentBgColor;
-    @include respond-max($sm){
-      padding: 38px 30px;
-      width: 100%;
-    }
-     @include respond-max($xs){
-      padding: 58px 30px;
-     }
-    &:hover{
-      background-color: transparent;
-      color: $primaryColor;
-      border: 1px solid $primaryColor;
-      span{
-        font-style: italic;
-        font-weight: normal;
-      }
-    }
-  }
-  &-form{
-    padding: 30px 50px;
-    background-color: $bodyBgColor;
-    color: $primaryColor;
-    @include respond-max($sm) {
-        padding: 40px 30px;
-        width: 100%;
-      }
-    @include respond-max($xs){
-      padding: 58px 30px;
-     }
-    &:hover {
-        background-color: transparent;
-        color: $contentBgColor;
-        box-shadow: inset 2px 2px 20px 5px rgba($color: #000000, $alpha: 0.2);
-        span {
-          font-style: italic;
-          font-weight: normal;
+    font-size: 14px;
+    line-height: 0.73;
+    border-radius: 27px;
+    @include respond-to('xl'){
+      &:hover{        
+        &::after{
+          width: 200%;
+          height: 200%;
+          left: -100%;
+          filter: contrast(1.5);
         }
       }
+    }
+    @include respond-max-to("xl"){
+      font-size: 24px;
+      padding: 18px 19px;
+    }
+    @include respond-max-to('md'){
+      font-size: 44px;
+      padding: 38px 39px;
+      border-radius: 50px;
+    }
+    @include respond-max-to("sm"){
+      width: 100%;
+      font-size: 74px;
+      padding: 58px 39px;
+      border-radius: 100px;
+    }
+    &::after{      
+      background: linear-gradient(90deg,
+              #D74596 0%,
+              #F2464E 37%,
+              #857ADD 69%,
+              #0192DE 100%);      
+    }
+  }
+  &-submit{
+    width: 224px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    overflow: hidden;
+    @include respond-to('xl') {
+        &:hover {
+          &::after {
+            width: 200%;
+            height: 100%;
+            left: -10%;
+            filter: contrast(1.5);
+          }
+        }
+      }
+    @include respond-max-to("xl"){
+      width: 324px;
+      height: 94px;
+    }
+    @include respond-max-to('md'){
+      width: 550px;
+      height: 160px;
+      border-radius: 100px;
+    }
+    @include respond-max-to("sm"){
+      width: 100%;
+      height: 220px;
+    }
+    &::after{
+      background: linear-gradient(90deg,
+            #ED0189 0%,           
+            #F3293B 100%);
+    }
   }
 }
-
-
 
 .form-group{
-  width: 100%;
+  height: 52px;
+  position: relative;
+  @include respond-max-to('xl') {
+      height: 72px;
+    }
+  @include respond-max-to('lg') {
+      height: 92px;
+    }
+  @include respond-max-to('md') {
+      height: 120px;
+    }
+  @include respond-max-to('sm') {
+      height: 160px;
+    }
   &+&{
-    margin-top: 13px;
-    @include respond-max($xl) {
-        margin-top: 23px;
+    margin-top: 32px;
+    @include respond-max-to('lg'){
+      margin-top: 68px;
+    }
+    @include respond-max-to('md') {
+      margin-top: 88px;
+    }
+    @include respond-max-to('sm') {
+      margin-top: 120px;
+    }
+  }
+  input:not([type=checkbox]):not([type=radio]){
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(14, 144, 222, 0.16);
+    &::placeholder{
+      color: rgba(28, 31, 35, 0.4);
+      font-size: 14px;
+      @include respond-max-to('xl') {
+        font-size: 32px;
       }
-    @include respond-max($sm) {
-        margin-top: 43px;
+      @include respond-max-to('lg') {
+        font-size: 42px;
       }
+      @include respond-max-to('md') {
+        font-size: 56px;
+      }
+    }
+    &:focus,&:active{
+      outline: none;
+      box-shadow: none;
+      border-bottom: 1px solid rgba(14, 144, 222, 0.5);
+    }
   }
 }
 
-input:not([type="checkbox"]):not([type="radio"]){
-  padding-left: 40px;
-  padding-right: 20px;
-  border: 1px solid $inputBorderColor;
-  border-radius: 4px;
-  background-color: $primaryColor;
-  height: 65px;
-  width: 100%;
-  &:focus{
-    outline: none;
-    border-color: $inputHoverBorderColor;
-  }
-  @include respond-max($xl) {
-    height: 75px;
-  }
-  @include respond-max($sm){
-    height: 100px;
-  }
-  @include respond-max($xs){
-    height: 200px;
-  }
-}
-.form-group+.checkbox-label{
-  margin-top: 26px;
-  margin-bottom: 26px;
-  @include respond-max($xl){
-    margin-top: 36px;
-    margin-bottom: 36px;
-  }
-  @include respond-max($xs){
-    margin-top: 76px;
-    margin-bottom: 76px;
-  }
-}
-.checkbox-label{
+.checkbox-label {
   cursor: pointer;
   display: flex;
-  align-items: flex-end;
-  gap:16px;
-  color: $listBorder;
-  font-size: 19px;  
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 39px;
+  margin-bottom: 39px;
+  font-size: 16px;
   input:checked + .input-checkbox{
-    background-color: transparent;
-    border: 1px solid transparent;
-    background-image: url('../../assets/images/check.svg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    opacity: .6;
+  background-color: $checkboxColor;
+  border: 1px solid $checkboxColor;
+  background-image: url('../assets/images/check.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 13px 18px; 
+  @include respond-max-to('xl') {
+    background-size: 23px 28px;
+    }
+  @include respond-max-to('lg'){
+    background-size: 34px 38px;
+    }
+  @include respond-max-to('sm'){
+    background-size: 44px 48px;
+    }
   }
-  @include respond-max($xl) {
-    font-size: 29px;
+  @include respond-max-to('xl') {
+    font-size: 24px;
   }
-  @include respond-max($sm) {
-    font-size: 45px;
-    gap: 36px;
+  @include respond-max-to('lg'){
+      margin-top: 69px;
+      margin-bottom: 69px;
+      font-size: 42px;
   }
-  @include respond-max($xs) {
-    font-size: 75px;
-    gap: 56px;
+  @include respond-max-to('md') {
+    font-size: 56px;
+    margin-top: 88px;
+    margin-bottom: 88px;
+  }
+  @include respond-max-to('sm') {
+    font-size: 66px;
+    margin-top: 140px;
+    margin-bottom: 140px;
+    span{
+      width: calc(100% - 102px);
+      padding-left: 20px;
+    }
   }
 }
 .input-checkbox{
-  position: relative;
+  margin-right: 8px;
   width: 24px;
   height: 24px;
-  border: 1px solid $checkboxColor;
-  border-radius: 4px;
- 
-  @include respond-max($xl){
-      width: 34px;
-      height: 34px;
+  border-radius: 6px;
+  border: 1px solid rgba(14, 144, 222, 0.5);
+  @include respond-max-to('xl') {
+      width: 32px;
+      height: 32px;
     }
-  @include respond-max($sm) {
-      width: 54px;
-      height: 54px;
-      border-radius: 8px;
-    }
-  @include respond-max($xs){
-    width: 84px;
-    height: 84px;
-    border-radius: 16px;
+  @include respond-max-to('lg'){
+    width: 52px;
+    height: 52px;
   }
-}
-.hidden{
-  display: none;
-}
-.section{
-  margin-bottom: 100px;
+    @include respond-max-to('sm'){
+      width: 82px;
+      height: 82px;
+    }
 }
 
-.burger{
-  display: none;  
-  @include respond-max($sm) {
-    // display: block;
-    width: 60px;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 40px;
-    span{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      height: 4px;
-      background-color: $primaryColor;
-      border-radius: 4px;    
-      &::before{
-        content:"";
-        position: absolute;
-        top: -20px;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: $primaryColor;
-        border-radius: 4px;      
-      } 
-      &::after{
-        content:"";
-        position: absolute;
-        top: 20px;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: $primaryColor;
-        border-radius: 4px;      
-      } 
-    }
+.form-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+  width: 100%;
+  margin-top: 5px;
+  @include respond-max-to('xl') {
+    font-size: 24px;
   }
+  @include respond-max-to('lg') {      
+      font-size: 32px;
+      margin-top: 10px;
+    }  
+
+  @include respond-max-to('md') {
+    font-size: 42px;
+    margin-top: 20px;
+  }
+  @include respond-max-to('sm') {
+    font-size: 58px;
+    margin-top: 40px;
+  }
+}
+
+.popup-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(14, 144, 222, 0.5);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  min-width: 500px;
+  min-height: 100px;
+  color: #F3293B;
+  @include respond-max-to('xl'){
+    min-width: 50%;
+    min-height: 300px;
+    font-size: 56px;
+  }
+  @include respond-max-to('sm'){
+    min-width: 95%;
+    min-height: 350px;
+    font-size: 86px;
+  }
+}
+
+.popup-success.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

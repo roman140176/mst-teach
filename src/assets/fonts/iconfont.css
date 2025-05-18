@@ -1,11 +1,10 @@
 @font-face {
     font-family: "iconfont";
     src: url("../fonts/iconfont.woff?bb51359eb67e0d5315e34b4d8d72e8ad") format("woff"),
-        url("../fonts/iconfont.woff2?bb51359eb67e0d5315e34b4d8d72e8ad") format("woff2");
+url("../fonts/iconfont.woff2?bb51359eb67e0d5315e34b4d8d72e8ad") format("woff2");
 }
 
-i[class^="icon-"]:before,
-i[class*=" icon-"]:before {
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
     font-family: iconfont !important;
     font-style: normal;
     font-weight: normal !important;
@@ -19,11 +18,9 @@ i[class*=" icon-"]:before {
 .icon-phone:before {
     content: "\f101";
 }
-
 .icon-map:before {
     content: "\f102";
 }
-
 .icon-mail:before {
     content: "\f103";
 }
