@@ -290,6 +290,18 @@ body{
           left: 2px;
           border-radius: 30px;          
         }
+        .tabs__item-botton{
+          &::after{
+            width: 16px;
+            height: 15px;
+            background: url('../../assets/images/close.svg') no-repeat 0 0;
+            background-size: 100% 100%;
+            @include respond-max-to('lg'){
+              width: 20px;
+              height: 19px;
+            }
+          }
+        }
         .tabs__item-icon{
           background-color: $contactsColor;
         }

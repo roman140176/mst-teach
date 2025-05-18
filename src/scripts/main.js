@@ -25,27 +25,35 @@ const tabInfoItems = document.querySelectorAll('.tabs__content-info');
 if (tabItems.length) {
   tabItems.forEach((item) => {
     item.addEventListener('click', (e) => {
-      const id = e.currentTarget.getAttribute('data-comtent');
-
-      // Убираем .active со всех табов
-      tabItems.forEach((item) => item.classList.remove('active'));
-      e.currentTarget.classList.add('active');
-
-      // Убираем -active со всех блоков
-      tabInfoItems.forEach((item) => item.classList.remove('-active'));
-
-      // Добавляем -active нужному
+      const current = e.currentTarget;
+      const id = current.getAttribute('data-comtent');
       const targetBlock = document.querySelector(id);
-      targetBlock.classList.add('-active');
 
-      // Прокручиваем к блоку
-      targetBlock.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      // Если уже активный — деактивируем
+      if (current.classList.contains('active')) {
+        current.classList.remove('active');
+        if (targetBlock) targetBlock.classList.remove('-active');
+        return;
+      }
+
+      // Иначе — активируем выбранный
+      tabItems.forEach((tab) => tab.classList.remove('active'));
+      current.classList.add('active');
+
+      tabInfoItems.forEach((info) => info.classList.remove('-active'));
+      if (targetBlock) {
+        targetBlock.classList.add('-active');
+
+        // Прокрутка к активному блоку
+        targetBlock.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     });
   });
 }
+
 
 
 
